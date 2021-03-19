@@ -1,4 +1,4 @@
-package sample;
+package supremvanam;
 
 // Dear Professor, I was unable to install the required components to use JOptionPane (javax.swing) on my MacBook.
 // For that reason, I built a pop-up window by myself to use it as an alert dialog box.
@@ -40,18 +40,17 @@ public class Controller extends Application {
     GridPane gridPane = new GridPane();
     VBox vBox = new VBox();
 
-
     @Override
     public void start(Stage primaryStage){
 
         // Setting the styles
+        vBox.setSpacing(10);
+        vBox.setAlignment(Pos.CENTER);
+
         gridPane.setHgap(10);
         gridPane.setVgap(10);
         gridPane.setAlignment(Pos.CENTER);
         gridPane.setPadding(new Insets(40, 10, 30, 10));
-
-        vBox.setSpacing(10);
-        vBox.setAlignment(Pos.CENTER);
 
         headerFX.setFont(Font.font ("Verdana", FontWeight.EXTRA_BOLD, 25));
 
@@ -74,7 +73,6 @@ public class Controller extends Application {
         footerFX.setAlignment(Pos.BOTTOM_CENTER);
         footerFX.setStyle("-fx-text-fill: #A9ACAE");
         footerFX.setPadding(new Insets(20));
-
 
         // Adding to the layout
 
@@ -99,7 +97,6 @@ public class Controller extends Application {
 
         // Third element
         vBox.getChildren().addAll(calculateFX, fillRandomValuesFX, resetButtonFX, footerFX);
-
 
         // Functionality
 
@@ -138,7 +135,7 @@ public class Controller extends Application {
                 }
 
             } catch (Exception exception){
-                PopupAlertWindow.displayPopup("Error", "You have an error. Please check the values you entered and try again.");
+                PopupAlertWindow.displayPopup("Error", "You have an error. Please check the values you entered and try again.\n "+exception.getMessage());
             }
         });
 
@@ -167,6 +164,7 @@ public class Controller extends Application {
         primaryStage.show();
     }
 
+    // Calculate Future Value
     private void calculateFutureValue(){
         double investmentAmount = Double.parseDouble(investmentAmountFX.getText());
         int years = Integer.parseInt(numberOfYearsFX.getText());

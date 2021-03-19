@@ -1,4 +1,4 @@
-package sample;
+package supremvanam;
 
 public class Investment {
     private final double investmentAmount;

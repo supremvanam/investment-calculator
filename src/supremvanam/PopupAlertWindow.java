@@ -1,4 +1,4 @@
-package sample;
+package supremvanam;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
