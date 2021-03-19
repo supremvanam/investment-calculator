@@ -4,7 +4,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
@@ -13,8 +13,8 @@ import javafx.stage.Stage;
 public class PopupAlertWindow {
 
     public static void displayPopup(String title, String message) {
-        Stage stage = new Stage();
 
+        Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle(title);
         stage.setMinWidth(300);
@@ -22,25 +22,22 @@ public class PopupAlertWindow {
 
         Label label = new Label();
         label.setText(message);
-        label.setFont(Font.font("Times New Roman", 15.0));
-        label.setAlignment(Pos.CENTER);
-        label.setTextAlignment(TextAlignment.CENTER);
+        label.setFont(Font.font(15));
+        label.setAlignment(Pos.CENTER_LEFT);
+        label.setTextAlignment(TextAlignment.LEFT);
 
         Button closeButton = new Button("Close");
-        closeButton.setMinWidth(250);
+        closeButton.setMinWidth(200);
         closeButton.setOnAction(e -> stage.close());
 
-        GridPane gridPane = new GridPane();
-        gridPane.setHgap(10);
-        gridPane.setVgap(12);
-        gridPane.add(label, 1,1);
-        gridPane.setAlignment(Pos.CENTER);
-        gridPane.add(closeButton, 1,3);
+        VBox vBox = new VBox();
 
+        vBox.setAlignment(Pos.CENTER);
+        vBox.setSpacing(15);
+        vBox.getChildren().addAll(label, closeButton);
 
-        Scene scene = new Scene(gridPane);
+        Scene scene = new Scene(vBox);
         stage.setScene(scene);
         stage.showAndWait();
-
     }
 }

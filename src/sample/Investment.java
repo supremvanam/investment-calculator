@@ -1,11 +1,11 @@
 package sample;
 
-public class Loan {
+public class Investment {
     private final double investmentAmount;
     private final int numberOfYears;
     private final double interestRate;
 
-    public Loan(double investmentAmount,int numberOfYears,double interestRate){
+    public Investment(double investmentAmount, int numberOfYears, double interestRate){
         this.investmentAmount = investmentAmount;
         this.numberOfYears = numberOfYears;
         this.interestRate = interestRate;
